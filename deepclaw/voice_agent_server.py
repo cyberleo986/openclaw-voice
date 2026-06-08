@@ -32,6 +32,7 @@ logger = logging.getLogger(__name__)
 
 # Configuration
 DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY", "")
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY", "")
 OPENCLAW_GATEWAY_URL = os.getenv("OPENCLAW_GATEWAY_URL", "http://127.0.0.1:18789")
 OPENCLAW_GATEWAY_TOKEN = os.getenv("OPENCLAW_GATEWAY_TOKEN", "")
 HOST = os.getenv("HOST", "0.0.0.0")
@@ -256,8 +257,10 @@ def get_agent_config(public_url: str) -> dict:
             },
             "speak": {
                 "provider": {
-                    "type": "deepgram",
-                    "model": "aura-2-thalia-en",
+                    "type": "elevenlabs",
+                    "model": "eleven_multilingual_v2",
+                    "voice_id": "3TddAFyrluKTkKqORUd6",
+                    "api_key": ELEVENLABS_API_KEY,
                 },
             },
             "greeting": "Hello! How can I help you?",
