@@ -237,8 +237,12 @@ def get_agent_config(public_url: str) -> dict:
             "listen": {
                 "provider": {
                     "type": "deepgram",
-                    "model": "flux-general-en",
+                    "model": "nova-2",
                 },
+            },
+            "vad": {
+                "interrupt": True,
+                "interrupt_duration": 150,
             },
             "think": {
                 "provider": {
